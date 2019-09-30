@@ -50,6 +50,8 @@ class Api::V1::SessionsController <  ActionController::Base
 						token: ""
 					}
 				
-	end
+				end
+			end
 
+	end
 end
