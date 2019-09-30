@@ -3,7 +3,7 @@ class Api::V1::UsersController < Api::V1::ApplicationController
 	skip_before_action :authenticate, only: [:validate_otp], raise: false
 
 	def me
-		render json: { id: current_user.id, email: current_user.email, username: current_user.username, two_factor_enabled: current_user.two_factor_enabled }
+		render json: { id: current_user.id, email: current_user.email, username: current_user.username, two_factor_enabled: current_user.two_factor_enabled, contact: current_user.contact }
     end
     
 	def enable_otp_validate_auth
@@ -30,7 +30,7 @@ class Api::V1::UsersController < Api::V1::ApplicationController
             
             render json: {  success: true,
                             access_token: jwt,
-                            user: user.as_json(only: [:id, :email, :username, :two_factor_enabled, :portfolio_type]),
+                            user: user.as_json(only: [:id, :email, :username, :two_factor_enabled, :portfolio_type,:contact]),
                             location: Geocoder.search(ip).first.try(:country)
                         }
         else
