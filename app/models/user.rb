@@ -8,7 +8,7 @@ class User < ApplicationRecord
          # :recoverable, :rememberable, :validatable
   has_many :api_tokens
   
-  enum otp_module: {disabled: 0,enabled: 1},_prefix: true
+  enum otp_module:{disabled: 0,enabled: 1},_prefix: true
   attr_accessor :otp_code_token
 
   def generate_token

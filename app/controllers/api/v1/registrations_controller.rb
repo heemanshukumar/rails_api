@@ -1,4 +1,4 @@
-class Api::V1::RegistrationsController <  ActionController::Base
+class Api::V1::RegistrationsController < ActionController::Base
 
   def create
   	p "abc"
