@@ -1,7 +1,6 @@
 class Api::V1::RegistrationsController < ActionController::Base
 
   def create
-  	p "abc"
   	begin
     	ActiveRecord::Base.transaction do
         if params[:user][:password] == 	params[:user][:password_confirmation]

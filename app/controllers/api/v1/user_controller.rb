@@ -1,6 +1,6 @@
 class Api::V1::UsersController < Api::V1::ApplicationController
 
-	skip_before_action :authenticate, only: [:validate_otp]
+	skip_before_action :authenticate, only: [:validate_otp], raise: false
 
 	def me
 		render json: { id: current_user.id, email: current_user.email, username: current_user.username, two_factor_enabled: current_user.two_factor_enabled }
