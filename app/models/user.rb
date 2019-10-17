@@ -14,4 +14,8 @@ class User < ApplicationRecord
   def generate_token
   	Digest::SHA1.hexdigest([DateTime.now, rand].join)
   end
+
+  def abc
+    puts "himanshu"
+  end
 end
