@@ -29,29 +29,29 @@ class Api::V1::SessionsController <  ActionController::Base
 				render json:{
 			  	success: false,
 			  	message: "Contact or Password not present"
-			  }
+			  	}
 			end
 		rescue Exception => err
 			render json:{
 		  	success: false,
 		  	message: err.message
-		  }
+		  	}
 		end
 	end
 
 	def destroy
 			
-			@token = ApiToken.where(token: params[:id], expire: nil).last
-			if @token.present?
-				if @token.update_attributes(expire: Time.zone.now)
-					render json: { 
-						success: true, 
-						message: "Log Out successfully",
-						token: ""
-					}
+		@token = ApiToken.where(token: params[:id], expire: nil).last
+		if @token.present?
+			if @token.update_attributes(expire: Time.zone.now)
+				render json: { 
+					success: true, 
+					message: "Log Out successfully",
+					token: ""
+				}
 				
-				end
 			end
+		end
 
 	end
 end
