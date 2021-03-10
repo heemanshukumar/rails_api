@@ -1,5 +1,5 @@
 class Api::V1::UsersController < Api::V1::ApplicationController 
-	skip_before_action :check_terms
+	
 
 	def update_terms
 		if params[:user][:terms_accepted].present? 
